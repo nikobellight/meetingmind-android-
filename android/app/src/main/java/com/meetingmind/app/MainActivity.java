@@ -3,8 +3,6 @@ package com.meetingmind.app;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.webkit.PermissionRequest;
-import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -22,20 +20,10 @@ public class MainActivity extends BridgeActivity {
         WebSettings settings = getBridge().getWebView().getSettings();
         settings.setMediaPlaybackRequiresUserGesture(false);
 
-        // Grant microphone access when the web page calls getUserMedia()
-        getBridge().getWebView().setWebChromeClient(new WebChromeClient() {
-            @Override
-            public void onPermissionRequest(PermissionRequest request) {
-                request.grant(request.getResources());
-            }
-        });
-
-        // Inject native bridge on every page load
         getBridge().getWebView().setWebViewClient(
             new MeetingMindWebViewClient(getBridge())
         );
 
-        // Request RECORD_AUDIO at runtime if not already granted
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
                 != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(
