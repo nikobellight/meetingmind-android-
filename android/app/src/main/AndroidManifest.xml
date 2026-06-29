@@ -41,21 +41,14 @@
         </provider>
     </application>
 
-    <!-- Core -->
     <uses-permission android:name="android.permission.INTERNET" />
-
-    <!-- Microphone -->
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
-
-    <!-- Foreground service for background recording (keeps process alive when screen off) -->
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MICROPHONE" />
-
-    <!-- Keep screen and WiFi alive during recording -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-    <!-- Required feature declaration -->
     <uses-feature android:name="android.hardware.microphone" android:required="true" />
 
 </manifest>
