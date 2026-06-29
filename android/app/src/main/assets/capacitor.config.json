@@ -1,0 +1,14 @@
+{
+	"appId": "com.meetingmind.app",
+	"appName": "MeetingMind",
+	"webDir": "www",
+	"server": {
+		"url": "https://meetingmind.nikobellight.workers.dev",
+		"cleartext": false
+	},
+	"android": {
+		"allowMixedContent": false,
+		"captureInput": true,
+		"webContentsDebuggingEnabled": false
+	}
+}
